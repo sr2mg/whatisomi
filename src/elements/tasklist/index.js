@@ -6,9 +6,15 @@ import task from '../task'
 define('task-list', class extends WeElement {
 
 
+  static propTypes={
+    tasks:Array
+  }
   render() {
     return <>
-      <task-element />
+      {this.props.tasks.map(task=>
+              <task-element task={task}/>
+        )}
+
     </>
   }
 })

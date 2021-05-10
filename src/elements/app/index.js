@@ -1,6 +1,7 @@
 import { define, WeElement } from 'omi'
 import logo from './logo.svg'
 import '../app-intro'
+import '../tasklist'
 import '@omiu/button'
 
 define('my-app', class extends WeElement {
@@ -9,12 +10,12 @@ define('my-app', class extends WeElement {
   name = 'Omi'
 
   clickHandler = () => {
-
     this.name =(this.name == 'OMI') ? "Omi": "OMI"
     this.update()
   }
 
   render() {
+    const store = this.store
     return (
       <div class="app">
         <header class="app-header">
@@ -27,7 +28,7 @@ define('my-app', class extends WeElement {
           <h1 class="app-title">{this.name}へようこそ！</h1>
         </header>
         <app-intro arr={[1, 2, 3]} />
-        <o-button>ボタンらしい</o-button>
+        <task-list />
       </div>
     )
   }
